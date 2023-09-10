@@ -1,0 +1,101 @@
+/* style.css */
+
+/* Mengatur latar belakang ke warna biru pastel */
+body {
+    background-color: #add8e6;
+    font-family: Arial, sans-serif;
+}
+
+/* Mengatur gaya header */
+h4 {
+    text-align: center;
+    color: #333;
+}
+
+/* Mengatur kotak input teks */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #4682b4;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Mengatur checkbox dan radio button */
+input[type="checkbox"], input[type="radio"] {
+    margin-left: 10px;
+}
+
+/* Mengatur label checkbox dan radio button */
+b {
+    color: #333;
+}
+
+/* Mengatur kotak komentar */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #4682b4;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Mengatur tombol */
+input[type="submit"], input[type="reset"] {
+    background-color: #4682b4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Mengatur pilihan dari dropdown */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #4682b4;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Mengatur kotak sandi */
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #4682b4;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+/* style.css */
+
+/* Mengatur tampilan form-container (Flexbox) */
+.form-container {
+    display: flex;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center; /* Pusatkan secara vertikal */
+    height: 100vh; /* Set tinggi sesuai viewport height */
+}
+
+/* Mengatur tampilan fieldset */
+fieldset {
+    width: 80%; /* Lebar fieldset */
+    padding: 20px;
+    border: 2px solid #4682b4;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
