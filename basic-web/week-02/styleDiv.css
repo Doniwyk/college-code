@@ -1,0 +1,27 @@
+body {
+    background: url(img/tree.png), url(img/field.jpg);
+    background-repeat: no-repeat, repeat;
+    background-position: right top, left top;
+    color: white;
+}
+
+h2 {
+    color: brown;
+    font-family: Trebuchet MS;
+    text-align: center;
+}
+
+.kotak {
+    padding: 50px;
+    width: 100px;
+    color: white;
+    margin: 10px;
+    background: #6b5030;
+}
+
+#kotak{
+    width: 400px;
+    color: white;
+    background: #4b3822;
+    padding: 50px;
+}
