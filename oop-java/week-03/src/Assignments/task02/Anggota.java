@@ -37,15 +37,15 @@ public class Anggota {
         }
     }
 
-    public void angsur(int angsur) {
-        jumlahPinjaman -= angsur;
-    }
-
 //    public void angsur(int angsur) {
-//        if (angsur < (jumlahPinjaman * 0.1)) {
-//            System.out.println("Maaf, angsuran harus 10% dari jumlah pinjaman.");
-//        } else {
-//            jumlahPinjaman -= angsur;
-//        }
+//        jumlahPinjaman -= angsur;
 //    }
+
+    public void angsur(int angsur) {
+        if (angsur < (jumlahPinjaman * 0.1)) {
+            System.out.println("Maaf, angsuran harus 10% dari jumlah pinjaman.");
+        } else {
+            jumlahPinjaman -= angsur;
+        }
+    }
 }
