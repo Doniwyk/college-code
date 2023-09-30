@@ -1,31 +1,31 @@
 public class Room {
-    private final String roomId;
+    private String roomNumber;
     private boolean occupied;
 
-    public Room(String roomId) {
-        this.roomId = roomId;
-        this.occupied = false;
+    public Room(String roomNumber) {
+        this.roomNumber = roomNumber;
+        occupied = false;
     }
 
-    public String getRoomId() {
-        return roomId;
+    public String getRoomNumber() {
+        return roomNumber;
     }
 
     public boolean isOccupied() {
         return occupied;
     }
 
-    public void occupy() {
+    public void assignPatient() {
         occupied = true;
     }
 
-    public void vacate() {
+    public void dischargePatient() {
         occupied = false;
     }
 
     public void displayInfo() {
         System.out.println("Room Information:");
-        System.out.println("Room ID: " + roomId);
+        System.out.println("Room Number: " + roomNumber);
         System.out.println("Occupied: " + (occupied ? "Yes" : "No"));
     }
 }

@@ -1,5 +1,5 @@
-public class Doctor extends Person{
-    private final String specialization;
+public class Doctor extends Person {
+    private String specialization;
 
     public Doctor(String id, String name, int age, String gender, String specialization) {
         super(id, name, age, gender);

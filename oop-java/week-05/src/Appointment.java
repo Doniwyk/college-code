@@ -1,53 +1,22 @@
 public class Appointment {
-    private Patient patient;
-    private Doctor doctor;
+    private String patientId;
+    private String doctorId;
     private String date;
-    private String time;
 
-    public Appointment(Patient patient, Doctor doctor, String date, String time) {
-        this.patient = patient;
-        this.doctor = doctor;
-        this.date = date;
-        this.time = time;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
+    public Appointment(String patientId, String doctorId, String date) {
+        this.patientId = patientId;
+        this.doctorId = doctorId;
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public String getPatientId() {
+        return patientId;
     }
 
     public void displayInfo() {
         System.out.println("Appointment Information:");
-        patient.displayInfo();
-        doctor.displayInfo();
+        System.out.println("Patient ID: " + patientId);
+        System.out.println("Doctor ID: " + doctorId);
         System.out.println("Date: " + date);
-        System.out.println("Time: " + time);
     }
 }

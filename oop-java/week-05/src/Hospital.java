@@ -1,50 +1,33 @@
-import java.util.*;
-class Hospital {
-    private List<Doctor> doctors;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Hospital {
     private List<Patient> patients;
+    private List<Doctor> doctors;
     private List<Appointment> appointments;
     private List<Room> rooms;
     private List<Nurse> nurses;
     private List<LabReport> labReports;
     private List<MedicalRecord> medicalRecords;
-    private List<LabStaff> labStaffMembers;
+    private List<LabStaff> labStaff;
 
     public Hospital() {
-        this.doctors = new ArrayList<>();
-        this.patients = new ArrayList<>();
-        this.appointments = new ArrayList<>();
-        this.rooms = new ArrayList<>();
-        this.nurses = new ArrayList<>();
-        this.labReports = new ArrayList<>();
-        this.medicalRecords = new ArrayList<>();
-        this.labStaffMembers = new ArrayList<>();
-
-        // Initialize rooms
-        rooms.add(new Room("101"));
-        rooms.add(new Room("102"));
-        rooms.add(new Room("103"));
-        // Add more rooms as needed
-    }
-
-    public List<Room> getRooms() {
-        return rooms;
-    }
-
-    public Room findEmptyRoom() {
-        for (Room room : rooms) {
-            if (!room.isOccupied()) {
-                return room;
-            }
-        }
-        return null;
-    }
-
-    public void addDoctor(Doctor doctor) {
-        doctors.add(doctor);
+        patients = new ArrayList<>();
+        doctors = new ArrayList<>();
+        appointments = new ArrayList<>();
+        rooms = new ArrayList<>();
+        nurses = new ArrayList<>();
+        labReports = new ArrayList<>();
+        medicalRecords = new ArrayList<>();
+        labStaff = new ArrayList<>();
     }
 
     public void addPatient(Patient patient) {
         patients.add(patient);
+    }
+
+    public void addDoctor(Doctor doctor) {
+        doctors.add(doctor);
     }
 
     public void addAppointment(Appointment appointment) {
@@ -67,18 +50,14 @@ class Hospital {
         medicalRecords.add(medicalRecord);
     }
 
-    public void addLabStaff(LabStaff labStaff) {
-        labStaffMembers.add(labStaff);
+    public void addLabStaff(LabStaff staff) {
+        labStaff.add(staff);
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public Doctor findDoctorById(String doctorId) {
-        for (Doctor doctor : doctors) {
-            if (doctor.getId().equals(doctorId)) {
-                return doctor;
+    public Room findEmptyRoom() {
+        for (Room room : rooms) {
+            if (!room.isOccupied()) {
+                return room;
             }
         }
         return null;
@@ -91,5 +70,51 @@ class Hospital {
             }
         }
         return null;
+    }
+
+    public Doctor findDoctorById(String doctorId) {
+        for (Doctor doctor : doctors) {
+            if (doctor.getId().equals(doctorId)) {
+                return doctor;
+            }
+        }
+        return null;
+    }
+
+    public void assignPatientToRoom(Patient patient, Room room) {
+        patient.assignRoom(room.getRoomNumber());
+        room.assignPatient();
+    }
+
+    public void viewRoomInformation() {
+        for (Room room : rooms) {
+            room.displayInfo();
+        }
+    }
+
+    public void viewDoctorInformation(String doctorId) {
+        Doctor doctor = findDoctorById(doctorId);
+        if (doctor != null) {
+            doctor.displayInfo();
+        } else {
+            System.out.println("Doctor not found.");
+        }
+    }
+
+    public void viewPatientInformation(String patientId) {
+        Patient patient = findPatientById(patientId);
+        if (patient != null) {
+            patient.displayInfo();
+        } else {
+            System.out.println("Patient not found.");
+        }
+    }
+
+    public void viewAppointmentInformation(String patientId) {
+        for (Appointment appointment : appointments) {
+            if (appointment.getPatientId().equals(patientId)) {
+                appointment.displayInfo();
+            }
+        }
     }
 }
