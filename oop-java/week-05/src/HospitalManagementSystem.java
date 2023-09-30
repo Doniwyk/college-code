@@ -7,175 +7,151 @@ public class HospitalManagementSystem {
 
         while (true) {
             System.out.println("Menu:");
-            System.out.println("1. Admin");
-            System.out.println("2. Receptionist");
-            System.out.println("3. Doctor");
-            System.out.println("4. Lab Staff");
-            System.out.println("5. Exit");
-            System.out.print("Your Role: ");
-            int roleChoice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            System.out.println("1. Add Patient");
+            System.out.println("2. Add Doctor");
+            System.out.println("3. Schedule Appointment");
+            System.out.println("4. View Patient Information");
+            System.out.println("5. View Doctor Information");
+            System.out.println("6. View Appointment Information (by Patient ID)");
+            System.out.println("7. View Room Information");
+            System.out.println("8. Assign Patient to Room");
+            System.out.println("9. Exit");
+            System.out.print("Your Choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-            switch (roleChoice) {
+            switch (choice) {
                 case 1:
-                    // Admin Menu
-                    while (true) {
-                        System.out.println("\nAdmin Menu:");
-                        System.out.println("1. Add Staff");
-                        System.out.println("2. Remove Staff");
-                        System.out.println("3. View Patient Information");
-                        System.out.println("4. Back to Main Menu");
-                        System.out.print("Your Choice: ");
-                        int adminChoice = scanner.nextInt();
-                        scanner.nextLine();  // Consume newline
+                    System.out.print("Patient ID: ");
+                    String patientId = scanner.nextLine();
+                    System.out.print("Name: ");
+                    String patientName = scanner.nextLine();
+                    System.out.print("Age: ");
+                    int patientAge = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Gender: ");
+                    String patientGender = scanner.nextLine();
 
-                        switch (adminChoice) {
-                            case 1:
-                                System.out.println("\nAdd Staff:");
-                                System.out.println("1. Doctor");
-                                System.out.println("2. Nurse");
-                                System.out.println("3. Lab Staff");
-                                System.out.print("Select Staff Type: ");
-                                int staffTypeChoice = scanner.nextInt();
-                                scanner.nextLine();  // Consume newline
+                    Patient patient = new Patient(patientId, patientName, patientAge, patientGender);
+                    hospital.addPatient(patient);
+                    System.out.println("Patient added successfully!");
+                    break;
 
-                                switch (staffTypeChoice) {
-                                    case 1:
-                                        // Add Doctor
-                                        System.out.print("Enter Doctor ID: ");
-                                        String doctorId = scanner.nextLine();
-                                        System.out.print("Enter Doctor Name: ");
-                                        String doctorName = scanner.nextLine();
-                                        System.out.print("Enter Doctor Age: ");
-                                        int doctorAge = scanner.nextInt();
-                                        scanner.nextLine();  // Consume newline
-                                        System.out.print("Enter Doctor Gender: ");
-                                        String doctorGender = scanner.nextLine();
-                                        System.out.print("Enter Doctor Specialization: ");
-                                        String doctorSpecialization = scanner.nextLine();
+                case 2:
+                    System.out.print("Doctor ID: ");
+                    String doctorId = scanner.nextLine();
+                    System.out.print("Name: ");
+                    String doctorName = scanner.nextLine();
+                    System.out.print("Age: ");
+                    int doctorAge = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Gender: ");
+                    String doctorGender = scanner.nextLine();
+                    System.out.print("Specialization: ");
+                    String doctorSpecialization = scanner.nextLine();
 
-                                        Doctor doctor = new Doctor(doctorId, doctorName, doctorAge, doctorGender, doctorSpecialization);
-                                        hospital.addDoctor(doctor);
-                                        System.out.println("Doctor added successfully!");
-                                        break;
+                    Doctor doctor = new Doctor(doctorId, doctorName, doctorAge, doctorGender, doctorSpecialization);
+                    hospital.addDoctor(doctor);
+                    System.out.println("Doctor added successfully!");
+                    break;
 
-                                    case 2:
-                                        // Add Nurse
-                                        System.out.print("Enter Nurse ID: ");
-                                        String nurseId = scanner.nextLine();
-                                        System.out.print("Enter Nurse Name: ");
-                                        String nurseName = scanner.nextLine();
-                                        System.out.print("Enter Nurse Age: ");
-                                        int nurseAge = scanner.nextInt();
-                                        scanner.nextLine();  // Consume newline
-                                        System.out.print("Enter Nurse Gender: ");
-                                        String nurseGender = scanner.nextLine();
+                case 3:
+                    System.out.print("Select Patient (Patient ID): ");
+                    String selectedPatientId = scanner.nextLine();
+                    System.out.print("Select Doctor (Doctor ID): ");
+                    String selectedDoctorId = scanner.nextLine();
+                    System.out.print("Appointment Date: ");
+                    String appointmentDate = scanner.nextLine();
+                    System.out.print("Appointment Time: ");
+                    String appointmentTime = scanner.nextLine();
 
-                                        Nurse nurse = new Nurse(nurseId, nurseName, nurseAge, nurseGender);
-                                        hospital.addNurse(nurse);
-                                        System.out.println("Nurse added successfully!");
-                                        break;
+                    Patient selectedPatient = hospital.findPatientById(selectedPatientId);
+                    Doctor selectedDoctor = hospital.findDoctorById(selectedDoctorId);
 
-                                    case 3:
-                                        // Add Lab Staff
-                                        System.out.print("Enter Lab Staff ID: ");
-                                        String labStaffId = scanner.nextLine();
-                                        System.out.print("Enter Lab Staff Name: ");
-                                        String labStaffName = scanner.nextLine();
-                                        System.out.print("Enter Lab Staff Age: ");
-                                        int labStaffAge = scanner.nextInt();
-                                        scanner.nextLine();  // Consume newline
-                                        System.out.print("Enter Lab Staff Gender: ");
-                                        String labStaffGender = scanner.nextLine();
+                    if (selectedPatient != null && selectedDoctor != null) {
+                        Appointment appointment = new Appointment(selectedPatient, selectedDoctor, appointmentDate, appointmentTime);
+                        System.out.println("Appointment scheduled successfully!");
+                    } else {
+                        System.out.println("Patient or doctor not found.");
+                    }
+                    break;
 
-                                        LabStaff labStaff = new LabStaff(labStaffId, labStaffName, labStaffAge, labStaffGender);
-                                        hospital.addLabStaff(labStaff);
-                                        System.out.println("Lab Staff added successfully!");
-                                        break;
+                case 4:
+                    System.out.print("Enter Patient ID: ");
+                    String patientIdToSearch = scanner.nextLine();
+                    Patient foundPatient = hospital.findPatientById(patientIdToSearch);
 
-                                    default:
-                                        System.out.println("Invalid choice.");
-                                }
-                                break;
+                    if (foundPatient != null) {
+                        foundPatient.displayInfo();
+                    } else {
+                        System.out.println("Patient with ID " + patientIdToSearch + " not found.");
+                    }
+                    break;
 
-                            case 2:
-                                System.out.println("\nRemove Staff:");
-                                System.out.println("1. Doctor");
-                                System.out.println("2. Nurse");
-                                System.out.println("3. Lab Staff");
-                                System.out.print("Select Staff Type: ");
-                                int removeStaffTypeChoice = scanner.nextInt();
-                                scanner.nextLine();  // Consume newline
+                case 5:
+                    System.out.print("Enter Doctor ID: ");
+                    String doctorIdToSearch = scanner.nextLine();
+                    Doctor foundDoctor = hospital.findDoctorById(doctorIdToSearch);
 
-                                switch (removeStaffTypeChoice) {
-                                    case 1:
-                                        // Remove Doctor
-                                        System.out.print("Enter Doctor ID to remove: ");
-                                        String doctorIdToRemove = scanner.nextLine();
-                                        if (hospital.removeDoctor(doctorIdToRemove)) {
-                                            System.out.println("Doctor removed successfully!");
-                                        } else {
-                                            System.out.println("Doctor not found.");
-                                        }
-                                        break;
+                    if (foundDoctor != null) {
+                        foundDoctor.displayInfo();
+                    } else {
+                        System.out.println("Doctor with ID " + doctorIdToSearch + " not found.");
+                    }
+                    break;
 
-                                    case 2:
-                                        // Remove Nurse
-                                        System.out.print("Enter Nurse ID to remove: ");
-                                        String nurseIdToRemove = scanner.nextLine();
-                                        if (hospital.removeNurse(nurseIdToRemove)) {
-                                            System.out.println("Nurse removed successfully!");
-                                        } else {
-                                            System.out.println("Nurse not found.");
-                                        }
-                                        break;
+                case 6:
+                    System.out.print("Enter Patient ID: ");
+                    String patientIdForAppointment = scanner.nextLine();
 
-                                    case 3:
-                                        // Remove Lab Staff
-                                        System.out.print("Enter Lab Staff ID to remove: ");
-                                        String labStaffIdToRemove = scanner.nextLine();
-                                        if (hospital.removeLabStaff(labStaffIdToRemove)) {
-                                            System.out.println("Lab Staff removed successfully!");
-                                        } else {
-                                            System.out.println("Lab Staff not found.");
-                                        }
-                                        break;
-
-                                    default:
-                                        System.out.println("Invalid choice.");
-                                }
-                                break;
-
-                            case 3:
-                                // View Patient Information
-                                System.out.print("Enter Patient ID to view information: ");
-                                String patientIdToView = scanner.nextLine();
-                                Patient patient = hospital.findPatientById(patientIdToView);
-                                if (patient != null) {
-                                    patient.displayInfo();
-                                } else {
-                                    System.out.println("Patient not found.");
-                                }
-                                break;
-
-                            case 4:
-                                // Back to Main Menu
-                                return;
-
-                            default:
-                                System.out.println("Invalid choice.");
+                    boolean foundAppointment = false;
+                    for (Appointment appointment : hospital.getAppointments()) {
+                        if (appointment.getPatient().getId().equals(patientIdForAppointment)) {
+                            appointment.displayInfo();
+                            foundAppointment = true;
+                            break;
                         }
                     }
 
-                    // Handle other role-specific menus (Receptionist, Doctor, Lab Staff) in similar fashion...
+                    if (!foundAppointment) {
+                        System.out.println("Appointment not found.");
+                    }
+                    break;
 
-                case 5:
+                case 7:
+                    System.out.println("Room Information:");
+                    List<Room> rooms = hospital.getRooms();
+                    for (Room room : rooms) {
+                        room.displayInfo();
+                    }
+                    break;
+
+                case 8:
+                    System.out.print("Select Patient (Patient ID): ");
+                    String patientIdForRoomAssignment = scanner.nextLine();
+                    Patient selectedPatientForRoomAssignment = hospital.findPatientById(patientIdForRoomAssignment);
+
+                    if (selectedPatientForRoomAssignment != null) {
+                        Room emptyRoom = hospital.findEmptyRoom();
+                        if (emptyRoom != null) {
+                            emptyRoom.occupy();
+                            System.out.println("Patient assigned to Room " + emptyRoom.getRoomId());
+                        } else {
+                            System.out.println("No empty rooms available.");
+                        }
+                    } else {
+                        System.out.println("Patient not found.");
+                    }
+                    break;
+
+                case 9:
                     System.out.println("Thank you! Exiting the program.");
                     scanner.close();
                     System.exit(0);
 
                 default:
-                    System.out.println("Invalid role choice.");
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
             }
         }
     }
