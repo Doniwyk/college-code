@@ -20,6 +20,16 @@ public class Hospital {
         labReports = new ArrayList<>();
         medicalRecords = new ArrayList<>();
         labStaff = new ArrayList<>();
+        initializeRooms();
+    }
+
+    private void initializeRooms() {
+        int numberOfRooms = 10; // Adjust the number of rooms as needed
+
+        for (int i = 1; i <= numberOfRooms; i++) {
+            String roomNumber = String.format("%03d", i); // Formats room number as "001", "002", etc.
+            rooms.add(new Room(roomNumber));
+        }
     }
 
     public void addPatient(Patient patient) {
@@ -32,10 +42,6 @@ public class Hospital {
 
     public void addAppointment(Appointment appointment) {
         appointments.add(appointment);
-    }
-
-    public void addRoom(Room room) {
-        rooms.add(room);
     }
 
     public void addNurse(Nurse nurse) {
@@ -81,6 +87,33 @@ public class Hospital {
         return null;
     }
 
+    public Nurse findNurseById(String doctorId) {
+        for (Nurse nurse : nurses) {
+            if (nurse.getId().equals(doctorId)) {
+                return nurse;
+            }
+        }
+        return null;
+    }
+
+    public LabStaff findLabStaffById(String labStaffId) {
+        for (LabStaff staff : labStaff) {
+            if (staff.getId().equals(labStaffId)) {
+                return staff;
+            }
+        }
+        return null;
+    }
+
+    public LabReport findLabReportById(String labReportId) {
+        for (LabReport labReport : labReports) {
+            if (labReport.getReportId().equals(labReportId)) {
+                return labReport;
+            }
+        }
+        return null; // Lab report not found
+    }
+
     public void assignPatientToRoom(Patient patient, Room room) {
         patient.assignRoom(room.getRoomNumber());
         room.assignPatient();
@@ -89,15 +122,6 @@ public class Hospital {
     public void viewRoomInformation() {
         for (Room room : rooms) {
             room.displayInfo();
-        }
-    }
-
-    public void viewDoctorInformation(String doctorId) {
-        Doctor doctor = findDoctorById(doctorId);
-        if (doctor != null) {
-            doctor.displayInfo();
-        } else {
-            System.out.println("Doctor not found.");
         }
     }
 
@@ -117,4 +141,64 @@ public class Hospital {
             }
         }
     }
+
+    public void removeDoctor(String doctorId) {
+        for (Doctor doctor : doctors) {
+            if (doctor.getId().equals(doctorId)) {
+                doctors.remove(doctor);
+                System.out.println("Doctor removed successfully.");
+                return;
+            }
+        }
+        System.out.println("Doctor not found.");
+    }
+
+    public void removeNurse(String nurseId) {
+        for (Nurse nurse : nurses) {
+            if (nurse.getId().equals(nurseId)) {
+                nurses.remove(nurse);
+                System.out.println("Nurse removed successfully.");
+                return;
+            }
+        }
+        System.out.println("Nurse not found.");
+    }
+
+    public void removeLabStaff(String labStaffId) {
+        for (LabStaff staff : labStaff) {
+            if (staff.getId().equals(labStaffId)) {
+                labStaff.remove(staff);
+                System.out.println("Lab Staff removed successfully.");
+                return;
+            }
+        }
+        System.out.println("Lab Staff not found.");
+    }
+    public void viewDoctorInformationById(String doctorId) {
+        Doctor doctor = findDoctorById(doctorId);
+        if (doctor != null) {
+            doctor.displayInfo();
+        } else {
+            System.out.println("Doctor not found.");
+        }
+    }
+
+    public void viewNurseInformationById(String nurseId) {
+        Nurse nurse = findNurseById(nurseId);
+        if (nurse != null) {
+            nurse.displayInfo();
+        } else {
+            System.out.println("Nurse not found.");
+        }
+    }
+
+    public void viewLabStaffInformationById(String labStaffId) {
+        LabStaff staff = findLabStaffById(labStaffId);
+        if (staff != null) {
+            staff.displayInfo();
+        } else {
+            System.out.println("Lab Staff not found.");
+        }
+    }
+
 }

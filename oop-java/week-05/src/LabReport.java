@@ -11,6 +11,9 @@ public class LabReport {
         this.result = result;
     }
 
+    public String getReportId() {
+        return reportId;
+    }
     public void displayInfo() {
         System.out.println("Lab Report Information:");
         System.out.println("Report ID: " + reportId);
