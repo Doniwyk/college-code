@@ -10,20 +10,50 @@ class Hospital {
     private List<LabStaff> labStaffMembers;
 
     public Hospital() {
-        this.doctors = new ArrayList<>();
-        this.patients = new ArrayList<>();
-        this.appointments = new ArrayList<>();
-        this.rooms = new ArrayList<>();
-        this.nurses = new ArrayList<>();
-        this.labReports = new ArrayList<>();
-        this.medicalRecords = new ArrayList<>();
-        this.labStaffMembers = new ArrayList<>();
+        patients = new ArrayList<>();
+        doctors = new ArrayList<>();
+        nurses = new ArrayList<>();
+        labStaffMembers = new ArrayList<>();
+        appointments = new ArrayList<>();
+        rooms = new ArrayList<>();
+        labReports = new ArrayList<>();
+        medicalRecords = new ArrayList<>();
 
         // Initialize rooms
         rooms.add(new Room("101"));
         rooms.add(new Room("102"));
         rooms.add(new Room("103"));
         // Add more rooms as needed
+    }
+
+    public boolean removeDoctor(String doctorId) {
+        for (Doctor doctor : doctors) {
+            if (doctor.getId().equals(doctorId)) {
+                doctors.remove(doctor);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeNurse(String nurseId) {
+        for (Nurse nurse : nurses) {
+            if (nurse.getId().equals(nurseId)) {
+                nurses.remove(nurse);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean removeLabStaff(String labStaffId) {
+        for (LabStaff lab : labStaffMembers) {
+            if (lab.getId().equals(labStaffId)) {
+                labStaffMembers.remove(lab);
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Room> getRooms() {
