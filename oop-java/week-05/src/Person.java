@@ -16,7 +16,7 @@ public class Person {
     }
 
     public void displayInfo() {
-        System.out.println("Person Information:");
+        System.out.println("==== Person Information ====");
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);

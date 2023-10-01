@@ -15,7 +15,7 @@ public class LabReport {
         return reportId;
     }
     public void displayInfo() {
-        System.out.println("Lab Report Information:");
+        System.out.println("==== Lab Report Information ====");
         System.out.println("Report ID: " + reportId);
         System.out.println("Patient ID: " + patientId);
         System.out.println("Test Type: " + testType);

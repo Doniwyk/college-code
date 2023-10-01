@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Hospital hospital = new Hospital();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Hospital hospital = new Hospital();
 
     public static void main(String[] args) {
         while (true) {
@@ -21,12 +21,13 @@ public class Main {
     }
 
     private static void displayRoleSelectionMenu() {
-        System.out.println("Select Role:");
-        System.out.println("1. Admin");
-        System.out.println("2. Receptionist");
-        System.out.println("3. Doctor");
-        System.out.println("4. Lab Staff");
-        System.out.println("5. Exit");
+        System.out.println("\n==== SELECT ROLE ====");
+        System.out.printf("| %-17s |\n", "1. Admin");
+        System.out.printf("| %-17s |\n", "2. Receptionist");
+        System.out.printf("| %-17s |\n", "3. Doctor");
+        System.out.printf("| %-17s |\n", "4. Lab Staff");
+        System.out.printf("| %-17s |\n", "5. Exit");
+        System.out.println("=====================");
         System.out.print("Enter your role choice: ");
     }
 
@@ -37,13 +38,14 @@ public class Main {
     private static void adminMenu() {
         boolean exitAdmin = false;
         while (!exitAdmin) {
-            System.out.println("Admin Menu:");
-            System.out.println("1. Add Staff");
-            System.out.println("2. Remove Staff");
-            System.out.println("3. View Staff Information");
-            System.out.println("4. View Patient Information");
-            System.out.println("5. Back to Role Selection");
-
+            System.out.println("\n=========== ADMIN MENU ===========");
+            System.out.printf("| %-30s |\n", "1. Add Staff");
+            System.out.printf("| %-30s |\n", "2. Remove Staff");
+            System.out.printf("| %-30s |\n", "3. View Staff Information");
+            System.out.printf("| %-30s |\n", "4. View Patient Information");
+            System.out.printf("| %-30s |\n", "5. Back to Role Selection");
+            System.out.println("==================================");
+            System.out.print("Enter your choice: ");
             int adminChoice = getUserChoice();
 
             switch (adminChoice) {
@@ -65,11 +67,13 @@ public class Main {
     private static void addStaffMenu() {
         boolean exitAddStaffMenu = false;
         while (!exitAddStaffMenu) {
-            System.out.println("Add Staff:");
-            System.out.println("1. Add Doctor");
-            System.out.println("2. Add Nurse");
-            System.out.println("3. Add Lab Staff");
-            System.out.println("4. Back to Admin Menu");
+            System.out.println("\n========= Add Staff =========");
+            System.out.printf("| %-25s |\n", "1. Add Doctor");
+            System.out.printf("| %-25s |\n", "2. Add Nurse");
+            System.out.printf("| %-25s |\n", "3. Add lab Staff");
+            System.out.printf("| %-25s |\n", "4. Back to Admin Menu");
+            System.out.println("=============================");
+            System.out.print("Enter your choice: ");
 
             int addStaffChoice = getUserChoice();
 
@@ -127,11 +131,13 @@ public class Main {
     private static void removeStaffMenu() {
         boolean exitRemoveStaffMenu = false;
         while (!exitRemoveStaffMenu) {
-            System.out.println("Remove Staff:");
-            System.out.println("1. Remove Doctor");
-            System.out.println("2. Remove Nurse");
-            System.out.println("3. Remove Lab Staff");
-            System.out.println("4. Back to Admin Menu");
+            System.out.println("\n======== REMOVE STAFF =======");
+            System.out.printf("| %-25s |\n", "1. Remove Doctor");
+            System.out.printf("| %-25s |\n", "2. Remove Nurse");
+            System.out.printf("| %-25s |\n", "3. Remove Lab Staff");
+            System.out.printf("| %-25s |\n", "4. Back to Admin Menu");
+            System.out.println("=============================");
+            System.out.print("Enter your choice: ");
 
             int removeStaffChoice = getUserChoice();
 
@@ -166,11 +172,13 @@ public class Main {
     private static void viewStaffInformationMenu() {
         boolean exitViewStaffMenu = false;
         while (!exitViewStaffMenu) {
-            System.out.println("View Staff Information by ID:");
-            System.out.println("1. View Doctor Information");
-            System.out.println("2. View Nurse Information");
-            System.out.println("3. View Lab Staff Information");
-            System.out.println("4. Back to Admin Menu");
+            System.out.println("\n======= STAFF INFORMATION ========");
+            System.out.printf("| %-30s |\n", "1. View Doctor Information");
+            System.out.printf("| %-30s |\n", "2. View Nurse Information");
+            System.out.printf("| %-30s |\n", "3. View Lab Staff Information");
+            System.out.printf("| %-30s |\n", "4. Back to Admin Menu");
+            System.out.println("==================================");
+            System.out.print("Enter your choice: ");
 
             int viewStaffByIdChoice = getUserChoice();
 
@@ -199,19 +207,22 @@ public class Main {
     private static void receptionistMenu() {
         boolean exitReceptionistMenu = false;
         while (!exitReceptionistMenu) {
-            System.out.println("Receptionist Menu:");
-            System.out.println("1. Add Patient");
-            System.out.println("2. View Patient Information");
-            System.out.println("3. View Appointment Information (by Patient ID)");
-            System.out.println("4. Schedule Appointment");
-            System.out.println("5. View Room Information");
-            System.out.println("6. Assign Patient to Room");
-            System.out.println("7. Back to Role Selection");
+            System.out.println("\n========== RECEPTIONIST MENU ==========");
+            System.out.printf("| %-35s |\n", "1. Add Patient");
+            System.out.printf("| %-35s |\n", "2. View Patient Information");
+            System.out.printf("| %-35s |\n", "3. Assign Patient to Room");
+            System.out.printf("| %-35s |\n", "4. Schedule Appointment");
+            System.out.printf("| %-35s |\n", "5. View Appointment Information");
+            System.out.printf("| %-35s |\n", "6. View Room Information");
+            System.out.printf("| %-35s |\n", "7. Back to Role Selection");
+            System.out.println("=======================================");
+            System.out.print("Enter your choice: ");
 
             int receptionistChoice = getUserChoice();
 
             switch (receptionistChoice) {
                 case 1 -> {
+                    // Add Patient
                     System.out.print("Patient ID: ");
                     String patientId = scanner.next();
                     System.out.print("Name: ");
@@ -226,16 +237,33 @@ public class Main {
                     System.out.println("Patient added successfully!");
                 }
                 case 2 -> {
+                    // View Patient Information
                     System.out.print("Enter Patient ID: ");
                     String patientIdToView = scanner.next();
                     hospital.viewPatientInformation(patientIdToView);
                 }
                 case 3 -> {
+                    // Assign Patient to Room
                     System.out.print("Enter Patient ID: ");
-                    String patientIdForAppointments = scanner.next();
-                    hospital.viewAppointmentInformation(patientIdForAppointments);
+                    String patientIdForRoomAssignment = scanner.next();
+                    System.out.print("Enter Room Number: ");
+                    String roomNumber = scanner.next();
+                    Patient patientForRoomAssignment = hospital.findPatientById(patientIdForRoomAssignment);
+                    Room room = hospital.findEmptyRoom();
+
+                    if (patientForRoomAssignment != null && room != null) {
+                        hospital.assignPatientToRoom(patientForRoomAssignment, room);
+                        room.setOccupied(true); // Mark the room as occupied
+                        room.setPatientId(patientIdForRoomAssignment); // Assign the patient to the room
+                        System.out.println("Patient assigned to room " + room.getRoomNumber() + " successfully!");
+                    } else if (room == null) {
+                        System.out.println("No available rooms.");
+                    } else {
+                        System.out.println("Patient not found.");
+                    }
                 }
                 case 4 -> {
+                    // Schedule Appointment
                     System.out.print("Patient ID: ");
                     String patientIdForAppointment = scanner.next();
                     System.out.print("Doctor ID: ");
@@ -246,24 +274,12 @@ public class Main {
                     hospital.addAppointment(appointment);
                     System.out.println("Appointment scheduled successfully!");
                 }
-                case 5 -> hospital.viewRoomInformation();
-                case 6 -> {
+                case 5 -> {
                     System.out.print("Enter Patient ID: ");
-                    String patientIdForRoomAssignment = scanner.next();
-                    System.out.print("Enter Room Number: ");
-                    String roomNumber = scanner.next();
-                    Patient patientForRoomAssignment = hospital.findPatientById(patientIdForRoomAssignment);
-                    Room room = hospital.findEmptyRoom();
-
-                    if (patientForRoomAssignment != null && room != null) {
-                        hospital.assignPatientToRoom(patientForRoomAssignment, room);
-                        System.out.println("Patient assigned to room " + room.getRoomNumber() + " successfully!");
-                    } else if (room == null) {
-                        System.out.println("No available rooms.");
-                    } else {
-                        System.out.println("Patient not found.");
-                    }
+                    String patientIdForAppointments = scanner.next();
+                    hospital.viewAppointmentInformation(patientIdForAppointments);
                 }
+                case 6 -> hospital.viewRoomInformation();
                 case 7 -> exitReceptionistMenu = true;
                 default -> System.out.println("Invalid choice. Please try again.");
             }
@@ -273,9 +289,11 @@ public class Main {
     private static void doctorMenu() {
         boolean exitDoctorMenu = false;
         while (!exitDoctorMenu) {
-            System.out.println("Doctor Menu:");
-            System.out.println("1. Add Medical Record");
-            System.out.println("2. Back to Role Selection");
+            System.out.println("\n========= DOCTOR MENU ==========");
+            System.out.printf("| %-28s |\n", "1. Add Medical Record");
+            System.out.printf("| %-28s |\n", "2. Back to Role Selection");
+            System.out.println("================================");
+            System.out.print("Enter your choice: ");
 
             int doctorChoice = getUserChoice();
 
@@ -309,10 +327,12 @@ public class Main {
     private static void labStaffMenu() {
         boolean exitStaffMenu = false;
         while (!exitStaffMenu) {
-            System.out.println("Staff Menu:");
-            System.out.println("1. Add Lab Report");
-            System.out.println("2. View Lab Report Information");
-            System.out.println("3. Back to Role Selection");
+            System.out.println("\n========= LAB STAFF MENU =========");
+            System.out.printf("| %-30s |\n", "1. Add Lab Report");
+            System.out.printf("| %-30s |\n", "2. View Lab Report Information");
+            System.out.printf("| %-30s |\n", "3. Back to Role Selection");
+            System.out.println("==================================");
+            System.out.print("Enter your choice: ");
 
             int staffChoice = getUserChoice();
 

@@ -14,9 +14,10 @@ public class Appointment {
     }
 
     public void displayInfo() {
-        System.out.println("Appointment Information:");
-        System.out.println("Patient ID: " + patientId);
-        System.out.println("Doctor ID: " + doctorId);
-        System.out.println("Date: " + date);
+        System.out.println("\n==== Appointment Information ====");
+        System.out.printf("| %-26s |\n", "Patient ID\t: " + patientId);
+        System.out.printf("| %-26s |\n", "Doctor ID\t\t: " + doctorId);
+        System.out.printf("| %-22s |\n", "Date\t\t\t: " + date);
+        System.out.println("=================================");
     }
 }

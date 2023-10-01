@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Hospital {
     private List<Patient> patients;
@@ -24,10 +23,10 @@ public class Hospital {
     }
 
     private void initializeRooms() {
-        int numberOfRooms = 10; // Adjust the number of rooms as needed
+        int numberOfRooms = 10;
 
         for (int i = 1; i <= numberOfRooms; i++) {
-            String roomNumber = String.format("%03d", i); // Formats room number as "001", "002", etc.
+            String roomNumber = String.format("%03d", i);
             rooms.add(new Room(roomNumber));
         }
     }
@@ -111,7 +110,7 @@ public class Hospital {
                 return labReport;
             }
         }
-        return null; // Lab report not found
+        return null;
     }
 
     public void assignPatientToRoom(Patient patient, Room room) {
@@ -120,9 +119,23 @@ public class Hospital {
     }
 
     public void viewRoomInformation() {
-        for (Room room : rooms) {
-            room.displayInfo();
+        int columns = 2;
+        int maxRoomNumberLength = 3; // Adjust this based on your data
+        int maxStatusLength = "Occupied: Yes".length(); // Assuming "Occupied: Yes/No" is the longest status string
+
+        System.out.println("\n===================================== ROOM INFORMATION =====================================");
+        for (int i = 0; i < rooms.size(); i += columns) {
+            for (int j = 0; j < columns; j++) {
+                int index = i + j;
+                if (index < rooms.size()) {
+                    Room room = rooms.get(index);
+                    String roomInfo = String.format("| Room Number: %-" + maxRoomNumberLength + "s | Occupied: %-" + maxStatusLength + "s |", room.getRoomNumber(), room.isOccupied() ? "Yes" : "No");
+                    System.out.print(roomInfo);
+                }
+            }
+            System.out.println();
         }
+        System.out.println("============================================================================================");
     }
 
     public void viewPatientInformation(String patientId) {
@@ -200,5 +213,4 @@ public class Hospital {
             System.out.println("Lab Staff not found.");
         }
     }
-
 }
