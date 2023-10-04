@@ -104,7 +104,9 @@ public class Main {
                     int nurseAge = scanner.nextInt();
                     System.out.print("Gender: ");
                     String nurseGender = scanner.next();
-                    Nurse nurse = new Nurse(nurseId, nurseName, nurseAge, nurseGender);
+                    System.out.print("Department: ");
+                    String nurseDepartment = scanner.next();
+                    Nurse nurse = new Nurse(nurseId, nurseName, nurseAge, nurseGender,nurseDepartment);
                     hospital.addNurse(nurse);
                     System.out.println("Nurse added successfully!");
                 }
@@ -118,7 +120,9 @@ public class Main {
                     int labStaffAge = scanner.nextInt();
                     System.out.print("Gender: ");
                     String labStaffGender = scanner.next();
-                    LabStaff staff = new LabStaff(labStaffId, labStaffName, labStaffAge, labStaffGender);
+                    System.out.println("Specialization: ");
+                    String labStaffSpecialization = scanner.next();
+                    LabStaff staff = new LabStaff(labStaffId, labStaffName, labStaffAge, labStaffGender, labStaffSpecialization);
                     hospital.addLabStaff(staff);
                     System.out.println("Lab Staff added successfully!");
                 }
@@ -147,21 +151,18 @@ public class Main {
                     System.out.print("Enter Doctor ID to remove: ");
                     String doctorIdToRemove = scanner.next();
                     hospital.removeDoctor(doctorIdToRemove);
-                    System.out.println("Doctor removed successfully!");
                 }
                 case 2 -> {
                     // Remove Nurse
                     System.out.print("Enter Nurse ID to remove: ");
                     String nurseIdToRemove = scanner.next();
                     hospital.removeNurse(nurseIdToRemove);
-                    System.out.println("Nurse removed successfully!");
                 }
                 case 3 -> {
                     // Remove Lab Staff
                     System.out.print("Enter Lab Staff ID to remove: ");
                     String labStaffIdToRemove = scanner.next();
                     hospital.removeLabStaff(labStaffIdToRemove);
-                    System.out.println("Lab Staff removed successfully!");
                 }
                 case 4 -> exitRemoveStaffMenu = true;
                 default -> System.out.println("Invalid choice. Please try again.");

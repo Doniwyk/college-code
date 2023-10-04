@@ -120,7 +120,7 @@ public class Hospital {
 
     public void viewRoomInformation() {
         int columns = 2;
-        int maxRoomNumberLength = 3; // Adjust this based on your data
+        int maxRoomNumberLength = 3;
         int maxStatusLength = "Occupied: Yes".length(); // Assuming "Occupied: Yes/No" is the longest status string
 
         System.out.println("\n===================================== ROOM INFORMATION =====================================");

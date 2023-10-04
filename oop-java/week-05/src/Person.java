@@ -17,9 +17,9 @@ public class Person {
 
     public void displayInfo() {
         System.out.println("==== Person Information ====");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Gender: " + gender);
+        System.out.println("ID\t\t: " + id);
+        System.out.println("Name\t: " + name);
+        System.out.println("Age\t\t: " + age);
+        System.out.println("Gender\t: " + gender);
     }
 }
