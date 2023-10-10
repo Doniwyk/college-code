@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $(".box").load("test-content.html");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>Klik tombol dibawah untuk menampilkan konten</h2>
+    </div>
+    <button type="button">Klik saya</button>
+</body>
+</html>
