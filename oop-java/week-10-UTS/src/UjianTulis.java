@@ -1,4 +1,4 @@
-public class UjianTulis implements UjianMasuk{
+public class UjianTulis implements IUjianMasuk {
     @Override
     public void jenisUjian(Siswa siswa) {
         siswa.lulus();

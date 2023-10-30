@@ -1,5 +1,5 @@
-public class PerguruanTinggi {
-    private String nama;
+public abstract class PerguruanTinggi {
+    protected String nama;
 
     public PerguruanTinggi(String nama) {
         this.nama = nama;
@@ -16,4 +16,6 @@ public class PerguruanTinggi {
     public void umumkanHasilPenerimaan(Siswa siswa) {
         System.out.println("Hasil penerimaan di " + this.nama + " untuk " + siswa.getNama() + ": " + (siswa.isLulus() ? "Diterima" : "Tidak diterima"));
     }
+
+    public abstract String deskripsiProdi();
 }

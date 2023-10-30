@@ -6,8 +6,8 @@ public class Main {
         PerguruanTinggi polinema = new PerguruanTinggiVokasi("Polinema");
         PerguruanTinggi universitasIndonesia = new PerguruanTinggiAkademik("Universitas Indonesia");
 
-        UjianMasuk ujianBudi = new UjianKomputer();
-        UjianMasuk ujianToni = new UjianTulis();
+        IUjianMasuk ujianBudi = new UjianKomputer();
+        IUjianMasuk ujianToni = new UjianTulis();
 
         System.out.println(budi.getNama() + " mendaftar di " + polinema.getNama() + " dan " + toni.getNama() + " mendaftar di " + universitasIndonesia.getNama());
         System.out.println(budi.getNama() + " melakukan tes menggunakan " + ujianBudi.getJenisUjian() + " dan " + toni.getNama() + " melakukan tes " + ujianToni.getJenisUjian());
