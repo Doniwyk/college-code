@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Multidimensional Array</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Rating</th>
+        </tr>
+        <?php
+            $movie = array(
+                array("Avengers: Infinity War", 2018, 8.7),
+                array("The Avengers", 2012, 8.0),
+                array("Guardians of the Galaxy", 2014, 8.1),
+                array("Iron Man", 2008, 7.9)
+            );
+            echo "<tr>";
+                echo "<td>" . $movie[0][0] . "</td>";
+                echo "<td>" . $movie[0][1] . "</td>";
+                echo "<td>" . $movie[0][2] . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+                echo "<td>" . $movie[1][0] . "</td>";
+                echo "<td>" . $movie[1][1] . "</td>";
+                echo "<td>" . $movie[1][2] . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+                echo "<td>" . $movie[2][0] . "</td>";
+                echo "<td>" . $movie[2][1] . "</td>";
+                echo "<td>" . $movie[2][2] . "</td>";
+            echo "</tr>";
+        ?>
+    </table>
+</body>
+</html>
