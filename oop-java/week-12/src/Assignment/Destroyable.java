@@ -1,2 +1,5 @@
-package Assignment;public interface Destroyable {
+package Assignment;
+
+public interface Destroyable {
+    void destroyed();
 }

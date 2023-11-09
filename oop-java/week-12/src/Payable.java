@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public interface Payable {
+public interface Payable {
+    public int getPaymentAmount();
 }

@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class Employee {
+public class Employee {
+    protected String name;
+    public String getEmployeeInfo() {
+        return "Name = " + name;
+    }
 }

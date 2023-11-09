@@ -1,2 +1,8 @@
-package Assignment;public class Plant {
+package Assignment;
+
+class Plant {
+    public void doDestroy(Destroyable d) {
+        d.destroyed();
+    }
 }
+

@@ -1,4 +1,4 @@
-public class Tester {
+public class Tester4 {
     public static void main(String[] args) {
         Owner ow = new Owner();
         ElectricityBill eBill = new ElectricityBill(5, "R-1");
